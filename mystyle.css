@@ -1,67 +1,12 @@
+ .navbar-inverse{
+   background: black;
+ }
 
 /*--------Навігаційні потикушечки--------*/
 .body{
   background: rgb(8, 8, 8);
 }
 
-.menu-main a {
-  text-decoration: none;
-  display: block;
-  line-height: 40px;
-  padding: 0 20px;
-  font-size: 18px;
-  letter-spacing: 2px;
-  font-family: 'Arimo', sans-serif;
-  font-weight: bold;
-  color: white;
-  transition: .5s linear;
-}
-
-.navbar-logo {
-  position: absolute;
-  left: 50%;
-  top: 10px;
-  z-index: -1;
-  transform: translateX(-50%);
-}
-
-.menu-main {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  padding-top: 90px;
-  text-align: center;
-}
-
-.menu-main li {
-  float: none;
-  display: inline-block;
-}
-
-.menu-main a:hover{
-  color: yellow;
-  background: rgba(128, 128, 128, 0.199);
-}
-
-.sub-menu{
-  position:absolute;
-  padding: 0;
-  background: black;
-  display:none;
-}
-
-.nav-menu{
-  position:relative;
-  display:inline-block;
-}
-
-.nav-menu:hover .sub-menu{
-  display: block;
-}
-
-.solar_system a{
-  width: 136px;
-}
 /*↑↑↑↑↑↑↑↑↑↑-Це було тільки меню ))-↑↑↑↑↑↑↑↑↑↑*/
 
 
@@ -98,7 +43,7 @@
   border: 1px solid white;
   float: left;
   height: 500px;
-  margin: 5px 55px 0 12%;
+
   width: 350px;
   text-align: center;
   transition: .5s linear;
@@ -109,11 +54,11 @@
 }
 
 .news_2{
-  position: relative;
+
   border: 1px solid white;
   float: left;
   height: 500px;
-  margin: 5px 0 0 12%;
+ 
   width: 350px;
   text-align: center;
   transition: .5s linear;
@@ -138,42 +83,10 @@
   margin: 0 5px 0 5px;
 }
 
-@keyframes pulse {
-  from {
-    transform: scale3d(1, 1, 1);
-  }
-
-  50% {
-    transform: scale3d(1.05, 1.05, 1.05);
-  }
-
-  to {
-    transform: scale3d(1, 1, 1);
-  }
-
-}
-
-.article h1:hover {
-  animation: pulse 1s infinite;
-}
-
-.menu-main:hover{
-  animation: anim_menu 1s;
-}
-
-@keyframes anim_menu {
-  from {
-    transform: scale3d(1, 1, 1);
-  }
-
-  50% {
-    transform: scale3d(1.25, 1.25, 1.25);
-  }
-
-  to {
-    transform: scale3d(1, 1, 1);
-  }
-
+.container{
+  max-width: 1200px;
+  margin:auto;
+  padding:0 1em; 
 }
 
 .footer{

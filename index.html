@@ -1,79 +1,136 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
     <head>
         <meta charset="utf-8">
-        <title>Cosmos is yours all</title>
-        <link href="mystyle.css" rel="stylesheet" type="text/css" />
-    </head>
-    <body class="body">
-        <!--Шапочка сайту-->
-        <header>
-            <nav class="top-menu">
-                <ul class="menu-main">
-                    <li><a href="http://www.cplusplus.com/reference/cstdlib/rand/">Earth</a></li>
-                    <li><a href="">Universe</a></li>
-                    <li><a href="">Galaxy</a></li>
-                    <li class="nav-menu"></div><a href=""> Solar system</a>
-                        <div class="solar_system"><ul class="sub-menu">
-                        <li><a href="">Sun</a></li>
-                        <li><a href="">Planets</a></li>
-                    </ul>
-                </div>
-                    </li>
-                    <li><a href="">Coordinates</a></li>
-                    <li><a href="">God (Admin)</a></li>
-                </ul>
-                
-                <a class="navbar-logo" href=""><img src="images/CHumackiy-SHlyakh.png"></a>
-              </nav>
-        </header>
-        <!--Його курточка-->
-        <article class="article">
-            <div class="content">
-                <p class="img_1"><img src="images/earth.png" width="300" height="295"></p>
-                   <h1>Earth<br></h1>
-                
-                <p> Earth is the third planet from the Sun and the only object in the Universe known to harbor life. 
-                     According to radiometric dating and other sources of evidence, Earth formed over 4 billion years ago.
-                     Earth's gravity interacts with other objects in space, especially the Sun and the Moon, Earth's only natural satellite.
-                     Earth revolves around the Sun in 365.26 days, a period known as an Earth year. 
-                     During this time, Earth rotates about its axis about 366.26 times.
-                     Earth's axis of rotation is tilted, producing seasonal variations on the planet's surface.
-                     The gravitational interaction between the Earth and Moon causes ocean tides, stabilizes the Earth's orientation on 
-                     its axis, and gradually slows its rotation. Earth is the densest planet in the Solar System and the largest of the four terrestrial planets.
-                     Earth's lithosphere is divided into several rigid tectonic plates that migrate across the surface over periods of many millions of years.
-                     About 71% of Earth's surface is covered with water, mostly by oceans. The remaining 29% is land consisting of continents and islands
-                     that together have many lakes, rivers and other sources of water that contribute to the hydrosphere. The majority of Earth's polar regions 
-                     are covered in ice, including the Antarctic ice sheet and the sea ice of the Arctic ice pack. Earth's interior remains active with a solid 
-                     iron inner core, a liquid outer core that generates the Earth's magnetic field, and a convecting mantle that drives plate tectonics.
-                     Within the first billion years of Earth's history, life appeared in the oceans and began to affect the Earth's atmosphere and surface, 
-                     leading to the proliferation of aerobic and anaerobic organisms. Some geological evidence indicates that life may have arisen as much as
-                     4.1 billion years ago. Since then, the combination of Earth's distance from the Sun, physical properties, and geological history have 
-                     allowed life to evolve and thrive. In the history of the Earth, biodiversity has gone through long periods of expansion, occasionally 
-                     punctuated by mass extinction events. Over 99% of all species that ever lived on Earth are extinct. Estimates of the number of 
-                     species on Earth today vary widely;\ most species have not been described. Over 7.4 billion humans live on Earth and depend on 
-                     its biosphere and natural resources for their survival. Humans have developed diverse societies and cultures; politically, the world has 
-                     about 200 sovereign states.</p>
-            </div>
-            <div class="news">
-                <div class="news_1">
-                    <p><img src="images/Solar.jpg" style="margin-top: 20px" width="300" height="295"></p>
-                    <h2><a href="http://www.spaceflightinsider.com/missions/solar-system/parker-solar-probe-approved-environmental-testing/">Solar Probe Plus</a></h2>
-                    <p>The Parker Solar Probe, formerly called Solar Probe Plus, has been 
-                    certified ready for environmental testing. </p>
-                </div>
-                <div class="news_2">
-                        <p><img src="images/news_2.jpg" style="margin-top: 20px" width="300" height="295"></p>
-                        <h2><a href="https://www.upenn.edu/spotlights/hunting-universes-missing-mass">Hunting for the Universe’s Missing Mass</a></h2>
-                        <p>If you ask any physicist to identify the biggest mystery in their field...</p>
-                </div>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="icon" href="">
 
-            </div>
-        </br>
-        </article>
+        <title>Navbar Template for Bootstrap</title>
+     
+        <!--<link href="css/bootstrap-grid.css" rel="stylesheet">
+        <link href="css/bootstrap-grid.min.css" rel="stylesheet">
+        <link href="css/bootstrap.min.css" rel="stylesheet"> -->
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="mystyle.css" rel="stylesheet">
+
+    </head>
+
+    <body class="body">
+
+        <!-- Шапочка сайту -->
+
+        <header>
+            <nav class="navbar navbar-inverse" role="navigation">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle-navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#"><img src="images/galaxy.png" height="35px" width="100px"></a>
+                    </div>           
+
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="#">Earth</a></li>
+                            <li><a href="#">Universe</a></li>
+                            <li><a href="#">Galaxy</a></li>
+                            <li><a href="#" class="dropdown-toggle" data-toggle="dropdown">Solar system<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Sun</a></li>
+                                <li><a href="#">Planets</a></li>
+                            </ul>
+                            </li>
+                            <li><a href="#">Coordinate</a></li>
+                            <li><a href="#">God(Admin)</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+<br>
+         <!-- Його курточка -->
+        <div class="carousel-inner">
+          <div class="item active">
+              <img src="images/slide1.jpg" alt="">
+              <div class="carousel-caption">
+              
+                <p>Photo of the Andromeda Galaxy, made by the Hubble Telescope</p>
+              </div>
+          </div>
+
+
+ 
+
+        <div class="article">
+                <div class="content">
+                        <p class="img_1"><img src="images/earth.png" width="300" height="295"></p>
+                           <h1>Earth<br></h1>
+                        
+                        <p> Earth is the third planet from the Sun and the only object in the Universe known to harbor life. 
+                             According to radiometric dating and other sources of evidence, Earth formed over 4 billion years ago.
+                             Earth's gravity interacts with other objects in space, especially the Sun and the Moon, Earth's only natural satellite.
+                             Earth revolves around the Sun in 365.26 days, a period known as an Earth year. 
+                             During this time, Earth rotates about its axis about 366.26 times.
+                             Earth's axis of rotation is tilted, producing seasonal variations on the planet's surface.
+                             The gravitational interaction between the Earth and Moon causes ocean tides, stabilizes the Earth's orientation on 
+                             its axis, and gradually slows its rotation. Earth is the densest planet in the Solar System and the largest of the four terrestrial planets.
+                             Earth's lithosphere is divided into several rigid tectonic plates that migrate across the surface over periods of many millions of years.
+                             About 71% of Earth's surface is covered with water, mostly by oceans. The remaining 29% is land consisting of continents and islands
+                             that together have many lakes, rivers and other sources of water that contribute to the hydrosphere. The majority of Earth's polar regions 
+                             are covered in ice, including the Antarctic ice sheet and the sea ice of the Arctic ice pack. Earth's interior remains active with a solid 
+                             iron inner core, a liquid outer core that generates the Earth's magnetic field, and a convecting mantle that drives plate tectonics.
+                             Within the first billion years of Earth's history, life appeared in the oceans and began to affect the Earth's atmosphere and surface, 
+                             leading to the proliferation of aerobic and anaerobic organisms. Some geological evidence indicates that life may have arisen as much as
+                             4.1 billion years ago. Since then, the combination of Earth's distance from the Sun, physical properties, and geological history have 
+                             allowed life to evolve and thrive. In the history of the Earth, biodiversity has gone through long periods of expansion, occasionally 
+                             punctuated by mass extinction events. Over 99% of all species that ever lived on Earth are extinct. Estimates of the number of 
+                             species on Earth today vary widely;\ most species have not been described. Over 7.4 billion humans live on Earth and depend on 
+                             its biosphere and natural resources for their survival. Humans have developed diverse societies and cultures; politically, the world has 
+                             about 200 sovereign states.</p>
+                    </div>
+
+                    <div class="container">
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img src="images/Solar.jpg" style="margin-top: 20px" width="300" height="295">
+                                <h2><a href="http://www.spaceflightinsider.com/missions/solar-system/parker-solar-probe-approved-environmental-testing/">Solar Probe Plus</a></h2>
+                                <p>The Parker Solar Probe, formerly called Solar Probe Plus, has been 
+                                certified ready for environmental testing. </p>
+                            </div>
+                        
+
+                            <div class="col-md-4">
+                                <img src="images/news_2.jpg" style="margin-top: 20px" width="300" height="295">
+                                <h2><a href="https://www.upenn.edu/spotlights/hunting-universes-missing-mass">Hunting for the Universe’s Missing Mass</a></h2>
+                                <p>If you ask any physicist to identify the biggest mystery in their field...</p>
+                            </div>
+
+                            <div class="col-md-4">
+                                <img src="images/news_3.jpg" style="margin-top: 20px" width="300" height="295">
+                                <h2><a href="https://www.upenn.edu/spotlights/hunting-universes-missing-mass">NASA launch today</a></h2>
+                                <p>Part one of a two-stage experiment to learn about the Intergalactic Medium is set for go</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </br>
+        </div>
+
         <!--І чобітки-->
         <footer class="footer">
             <p>Footer</p>
         </footer>
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
     </body>
+    
+    
 </html>
