@@ -1,0 +1,193 @@
+
+/*--------Навігаційні потикушечки--------*/
+.body{
+  background: rgb(8, 8, 8);
+}
+
+.menu-main a {
+  text-decoration: none;
+  display: block;
+  line-height: 40px;
+  padding: 0 20px;
+  font-size: 18px;
+  letter-spacing: 2px;
+  font-family: 'Arimo', sans-serif;
+  font-weight: bold;
+  color: white;
+  transition: .5s linear;
+}
+
+.navbar-logo {
+  position: absolute;
+  left: 50%;
+  top: 10px;
+  z-index: -1;
+  transform: translateX(-50%);
+}
+
+.menu-main {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  padding-top: 90px;
+  text-align: center;
+}
+
+.menu-main li {
+  float: none;
+  display: inline-block;
+}
+
+.menu-main a:hover{
+  color: yellow;
+  background: rgba(128, 128, 128, 0.199);
+}
+
+.sub-menu{
+  position:absolute;
+  padding: 0;
+  background: black;
+  display:none;
+}
+
+.nav-menu{
+  position:relative;
+  display:inline-block;
+}
+
+.nav-menu:hover .sub-menu{
+  display: block;
+}
+
+.solar_system a{
+  width: 136px;
+}
+/*↑↑↑↑↑↑↑↑↑↑-Це було тільки меню ))-↑↑↑↑↑↑↑↑↑↑*/
+
+
+
+.article{
+  position: relative;
+  margin:  5%  8% 0  8%;
+  font-size: 14px;
+  letter-spacing: 2px;
+  font-family: 'Arimo', sans-serif;
+  font-weight: none;
+  color: white;
+  text-align: justify;
+  line-height: 0.8cm;
+
+}
+
+.img_1{
+  float: right;
+  margin: 0 0 1.75em 1.75em
+}
+
+.news{
+  position: relative;
+  width: 100%;
+  height: 8%;
+  
+  text-align: center;
+}
+
+
+.news_1{
+
+  border: 1px solid white;
+  float: left;
+  height: 500px;
+  margin: 5px 55px 0 12%;
+  width: 350px;
+  text-align: center;
+  transition: .5s linear;
+}
+
+.news_1:hover{
+  background: rgba(128, 128, 128, 0.199);
+}
+
+.news_2{
+  position: relative;
+  border: 1px solid white;
+  float: left;
+  height: 500px;
+  margin: 5px 0 0 12%;
+  width: 350px;
+  text-align: center;
+  transition: .5s linear;
+
+}
+
+.news_2:hover{
+  background: rgba(128, 128, 128, 0.199);
+  
+}
+
+.news a{
+  color: rgba(19, 126, 189, 0.527);
+  transition: .5s linear;
+}
+
+.news a:hover{
+  color: rgba(236, 224, 49, 0.979);
+}
+
+.news p{
+  margin: 0 5px 0 5px;
+}
+
+@keyframes pulse {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    transform: scale3d(1.05, 1.05, 1.05);
+  }
+
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+
+}
+
+.article h1:hover {
+  animation: pulse 1s infinite;
+}
+
+.menu-main:hover{
+  animation: anim_menu 1s;
+}
+
+@keyframes anim_menu {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    transform: scale3d(1.25, 1.25, 1.25);
+  }
+
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+
+}
+
+.footer{
+  position: static;
+  float: left;
+  width: 100%;
+  height: 15%;
+  text-align: center;
+  border-top: 1px solid white;
+  margin-top: 20px;
+  color: white;
+}
+
+.footer p{
+  font-size: 18px;
+  margin: 25px;
+}
