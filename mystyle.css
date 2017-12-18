@@ -133,3 +133,39 @@
   position: absolute;
   bottom: 0;
 }
+
+
+.contacts {
+  text-align: center
+}
+
+.feedback {
+  padding: 2em 0;
+}
+
+.feedback:nth-child(3) {
+  border-top: 2px solid #ccc;
+}
+
+.feedback h2,
+.feedback span {
+  display: inline-block;
+}
+
+.feedback span {
+  color: #ccc;
+  font-style: italic;
+  margin-left: 1em;
+}
+
+textarea {
+  margin-top: 2em;
+  width: 100%;
+  margin-bottom: 1em
+}
+
+.button {
+  text-align: right;
+  margin-bottom: 2em;
+}
+
