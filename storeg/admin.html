@@ -7,7 +7,7 @@
         <link rel="icon" href="">
 
         <title>Navbar Template for Bootstrap</title>
-     
+
         <!--<link href="css/bootstrap-grid.css" rel="stylesheet">
         <link href="css/bootstrap-grid.min.css" rel="stylesheet">
         <link href="css/bootstrap.min.css" rel="stylesheet"> -->
@@ -31,22 +31,22 @@
                             <span class="icon-bar"></span>
                         </button>
                         <a class="navbar-brand" href="#"><img src="../images/galaxy.png" height="35px" width="100px"></a>
-                    </div>           
+                    </div>
 
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
                             <li><a href="../index.html">Головна</a></li>
                             <li><a href="../storeg/news.html">Новини</a></li>
-                            <li class="active"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Студентам<span class="caret"></span></a>
+                            <li><a href="#" class="dropdown-toggle" data-toggle="dropdown">Студентам<span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
-                                <li class="active"><a href="../storeg/program.html">Програма</a></li>
+                                <li><a href="../storeg/program.html">Програма</a></li>
                                 <li><a href="#">Лабораторні</a></li>
                                 <li><a href="#">Література</a></li>
                             </ul>
                             </li>
                             <li><a href="../storeg/widh.html">Відгуки</a></li>
                             <li><a href="../storeg/contact.html">Контакти</a></li>
-                            <li><a href="../storeg/admin.html">Admin</a></li>
+                            <li class="active"><a href="../storeg/admin.html">Admin</a></li>
                         </ul>
                     </div>
                 </div>
@@ -54,37 +54,53 @@
         </header>
 
          <!-- Його курточка -->
-         
-         <div class="carousel-inner">
-            <div class="item active">
-                <img src="../images/slide1.jpg" alt="">
-                <div class="carousel-caption">
-                    <h1>АДМІНІСТРАТОР</h1>
-                </div>
-            </div>
-        </div>
-<br>
-<div class="container" id="container">
-    <div id="newsWrap">
-    </div>
-    <h1 class="title">Додати новину</h1>
-    <div class="adminpanel">
-        <div class="col-md-6">
-           <div>
-               <input type="file" style="display:none;" id="inputfile"/>
-               <button class="btn btn-light" onclick="document.getElementById('inputfile').click();">Додати зображення</button>
-           </div>
-            <img src="img/img.png" alt="">
-        </div>
-        <div class="col-md-6">
-            <input id="title" class="form-control text" type="text">
-            <textarea id="article" class="form-control text" rows="10"> </textarea>
-            <button id="sendArticle" class="btn btn-light" type="submit">Відправити статью</button>
-        </div>
-    </div>
 
-</div>
-    
+    <div class="container marketing">
+       <div class="row">
+         <div class="col-lg-6 col-md-6">
+           <div align="center">
+             <h2>Додати новину</h2>
+             <img class="img-circle" src="css/images/ChooseImg.png" alt="Generic placeholder image" width="200" height="200">
+             <form>
+                 <div class="form-group">
+                   <label for="inputImg">Вибрати зображення</label>
+                   <input type="file" class="form-control-file" id="inputImg">
+                 </div>
+             </form>
+           </div>
+         </div>
+         <div class="col-lg-6 col-md-6">
+           <form>
+               <div class="form-group" id="Ntitle">
+                   <label for="TitleText">Назва новини</label>
+                   <textarea class="form-control" id="TitleText" rows="1"></textarea>
+               </div>
+               <div class="form-group" id="Nshort">
+                   <label for="ShortText">Кроткий опис</label>
+                   <textarea class="form-control" id="ShortText" rows="3"></textarea>
+               </div>
+               <div class="form-group" id="Nfull">
+                   <label for="FullText">Повний опис</label>
+                   <textarea class="form-control" id="FullText" rows="3"></textarea>
+               </div>
+           </form>
+           <button class="btn btn-primary float-right" type="submit" onclick="addNews()">Надіслати</button>
+         </div>
+       </div><!-- /.row -->
+
+       <hr class="featurette-divider">
+       <div class="row featurette"></div>
+       <hr class="featurette-divider">
+
+      <!-- FOOTER -->
+      <footer>
+         <p class="pull-right"><a href="https://github.com/skiffich">My github</a></p>
+         <p>Created by Dmytro Petrenko. All Rights Reserved by nobody</p>
+       </footer>
+
+     </div><!-- /.container -->
+
+
 <!--І чобітки-->
 
         <footer class="footerB">
@@ -95,7 +111,11 @@
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="../js/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+        <!-- My script for new response -->
+
+<!-- My script for saving news to LocalStorafe if offline -->
+<script src="../js/LocalStorage.js"></script>
     </body>
-    
-    
+
+
 </html>

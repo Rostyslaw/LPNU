@@ -62,28 +62,35 @@
 <br>
          <!-- Його курточка -->
 
-         <div class="container">
-            <div id="feedbacksWrap">
-            <div class="feedback">
-                <h2>Вася Пупкін</h2>
-                <span>11.12.12</span>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum earum, repudiandae quo animi optio molestiae quibusdam minus ullam, unde praesentium deleniti? Non repudiandae magnam omnis accusamus aut sit tempora expedita.</p>
-            </div>
-            <div class="feedback">
-                <h2>Вася Пупкін</h2>
-                <span>11.12.12</span>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum earum, repudiandae quo animi optio molestiae quibusdam minus ullam, unde praesentium deleniti? Non repudiandae magnam omnis accusamus aut sit tempora expedita.</p>
-            </div>
-          </div>
-            <textarea label="feedback" id="feedbackName" rows="1" placeholder="Автор"></textarea>
-            <br>
-            <textarea label="feedback" id="feedback" rows="8" placeholder="Не пиши що не любиш"></textarea>
-            <div class="btn btn-light">
-                <button for="feedback" id="feedbackButton" type="submit">Відправити</button>
-            </div>
-        </div>
+         <div id="reviews-list">
+           <div class="container card">
+             <h2>Просто хтось))</h2>
+             <span>11.11.2017, 14:00</span>
+             <p>
+               Сайтик такий собі міг краще мало часу просто))
+             </p><br>
+           </div>
+         </div>
+         <br><br>
+         <form class="container card" id="form">
+           <div class="h3">
+           <h3>Новий відгук</h3>
+         </div>
+           <div class="form-group">
+             <div class="col-xs-12">
+               <input id="name" type="text" class="form-control" placeholder="Твоє ім'я">
+             </div>
+             <br><br>
+             <div class="col-xs-12">
+               <textarea id="text" class="form-control" rows="4" placeholder="Новий відгук..."></textarea>
+               <br>
+               <input type="button" value="Надіслати відгук" class="btn btn-primary" onclick="addComments()">
+             </div>
+           </div>
+         </form>
+         </div>
+         </div>
 
-    </div>
 
 
     <!--І чобітки-->
