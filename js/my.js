@@ -19,16 +19,31 @@ function addNews() {
 			target.src = '../images/Random-turtle.jpg'
 			alert('Новина додана');
 		} else{
-			imgData = target.src;
-			i++;
-			var list = [];
-				 list.push({"name": (name),"text": (text)});
-			localStorage.setItem('n' + i, JSON.stringify(list));
-			localStorage.setItem('i' + i, (imgData));
-			document.getElementById('newsHeader').value = '';
-			document.getElementById('newsText').value = '';
-			target.src = '../images/Random-turtle.jpg'
-		}
+        if (useLocalStorage) {
+    			imgData = target.src;
+    			i++;
+    			var list = [];
+    				 list.push({"name": (name),"text": (text)});
+    			localStorage.setItem('n' + i, JSON.stringify(list));
+    			localStorage.setItem('i' + i, (imgData));
+    			document.getElementById('newsHeader').value = '';
+    			document.getElementById('newsText').value = '';
+    			target.src = '../images/Random-turtle.jpg'
+      }
+      else{
+        var transaction = db.transaction(["news"], "readwrite");
+          var store = transaction.objectStore("news");
+          var news1 = {
+              name: document.getElementById('newsHeader').value,
+              text: document.getElementById('newsText').value,
+              img: target.src
+      };
+      store.add(news1);
+    }
+    document.getElementById('newsHeader').value = '';
+    document.getElementById('newsText').value = '';
+
+}
 }
 
 function showImage(src, target) {

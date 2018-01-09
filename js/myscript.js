@@ -35,6 +35,7 @@ function addComments() {
         parentElem.appendChild(out);
         document.getElementById('form').reset();
     } else {
+      if (useLocalStorage) {
             var date = new Date;
             var author = document.getElementById('name').value;
             var text = document.getElementById('text').value;
@@ -43,10 +44,21 @@ function addComments() {
             list.push({"name": author, "text": text, "date": date});
             localStorage.setItem('r' + i, JSON.stringify(list));
         document.getElementById('form').reset();
+      }
+      else{
+        var transaction = db.transaction(["reviews"], "readwrite");
+            var store = transaction.objectStore("reviews");
+            var review = {
+                message: document.getElementById('text').value,
+                author: document.getElementById('name').value,
+                time: new Date
+      };
+      store.add(review);
     }
-}
+}}
 
 function readOfflineComments() {
+      if (useLocalStorage) {
         len = localStorage.length + 1;
         for (var k = 1; k < len; k++) {
             review = JSON.parse(localStorage.getItem('r' + k));
@@ -61,6 +73,29 @@ function readOfflineComments() {
             parentElem.appendChild(out);
             localStorage.removeItem(k);
         }
+      }
+      else {
+        var transaction = db.transaction(["reviews"], "readonly");
+        var store = transaction.objectStore("reviews");
+
+        store.openCursor().onsuccess = function (e) {
+            var cursor = e.target.result;
+            if (cursor) {
+                cursor.continue();
+                var parentElem = document.getElementById('reviews-list');
+                var out = document.createElement('div');
+                out.id = 'review';
+                out.innerHTML =
+                "<div class='container card'><br>" +
+                "   <span class='review-author'>" +cursor.value.author + "</span>" +
+                "   <span class='review-date'>" + cursor.value.time + "</span>" +
+                "   <p><br>" + cursor.value.message + "</p><br></div>";
+                var request = db.transaction(["reviews"], "readwrite").objectStore("reviews").delete(cursor.primaryKey);
+                parentElem.appendChild(out);
+
+            }
+        }
+    }
 }
 
 
