@@ -62,34 +62,28 @@
 <br>
          <!-- Його курточка -->
 
-         <div id="reviews-list">
-           <div class="container card">
-             <h2>Просто хтось))</h2>
-             <span>11.11.2017, 14:00</span>
-             <p>
-               Сайтик такий собі міг краще мало часу просто))
-             </p><br>
-           </div>
-         </div>
-         <br><br>
-         <form class="container card" id="form">
-           <div class="h3">
-           <h3>Новий відгук</h3>
-         </div>
-           <div class="form-group">
-             <div class="col-xs-12">
-               <input id="name" type="text" class="form-control" placeholder="Твоє ім'я">
-             </div>
-             <br><br>
-             <div class="col-xs-12">
-               <textarea id="text" class="form-control" rows="4" placeholder="Новий відгук..."></textarea>
-               <br>
-               <input type="button" value="Надіслати відгук" class="btn btn-primary" onclick="addComments()">
-             </div>
-           </div>
-         </form>
-         </div>
-         </div>
+         <div class = container id="responses">
+            <p><font size=3>ТОВ «Савинці — Агро»
+        
+          «Знаємо компанію «Украгроком» вже не перший рік. За цей час можна сказати тільки позитивні слова в адресу ТОВ «Украгроком». Про співпрацю: команда справжніх професіоналів, вчасно та кваліфіковано надаються консультаційні послуги, професійний підхід до роботи з клієнтами!!! Щодо сильних сторін компанії, так це – великий та якісний асортимент товарів та вчасні відвантаження товару, оперативне реагування на ту чи іншу проблему.»
+        </font><i><br><br>Балин Валентин Іванович - Директор Черкаська обл.</i>   <font color=cream><b><br>21.03.12</b></font>
+        
+        </p>
+        <p><font size=3>ТОВ СНЦ «Мир Сем»
+        «З компанією «Украгроком»ми працюємо з 2007 року. На соняшнику ми використовували Грінфорт ХЦ-550 проти довгоносика, який пошкоджував сходи і були вражені дією данного препарату. Також ми використовували Грінфорт ДК-150 для десикації соняшника авіаметодом. Результатом був своєчасний збір врожаю та його кондиційність.»
+        </font><i><br><br>Балинська Валентина Іванівна - Директор Черкаська обл.</i>   <font color=cream><b><br>20.01.12</b></font>
+        </p>
+                <div class="row" id="newResponseField">
+                    <div class = "col-lg">
+                        <div class="form-group">
+                            <textarea class="form-control" rows="1" id="name" placeholder="Ваше ім'я..."></textarea>
+                            <br>
+                            <textarea class="form-control" rows="5" id="comment" placeholder = "Новий відгук..."></textarea>
+                        </div>
+                        <button class="btn btn-primary float-right" type="submit" onclick="addFeedback()">Відправити</button>
+                    </div>
+                </div>
+            </div>
 
 
 

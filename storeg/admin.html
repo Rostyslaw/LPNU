@@ -64,27 +64,25 @@
             </div>
         </div>
 <br>
-<div class="container">
-    <h1>Додати новину</h1>
-       <div class="col-lg-6">
-              <!-- <button type="button" class="adminbutton btn btn-primary btn-md  ">Додати зображення</button> -->
-        <form id="news-img-form">
-                  <label>Виберіть зображення</label>
-                  <input id="news-img" type="file" class="form-control-file" accept="image/*">
-                </form>
-                    <img id="target" src="../images/Random-turtle.jpg" class="adm_photo img-responsive st">
-               </div>
 
-        <div class="col-lg-6">
-          <div class="form-group">
-            <textarea class="form-control" id="newsHeader" rows="1" placeholder="Заголовок..."></textarea>
-          </div>
-                       <div class="form-group">
-            <textarea class="form-control" id="newsText"rows="10" placeholder="Новина..."></textarea>
-            <button  class="admin_button btn btn-primary btn-lg" onClick = "addNews()" type="button">Haдіслати</button>
-          </div>
-       </div>
-  </div>
+  <div class="container">
+    <h1 class="title">Додати новину</h1>
+    <div class="adminpanel">
+        <div class="col-md-6">
+           <div>
+               <input type="file" style="display:none;" id="inputfile"/>
+               <button class="btn btn-light" onclick="document.getElementById('inputfile').click();">Додати зображення</button>
+           </div>
+            <img src="../images/Random-turtle.jpg" alt="">
+        </div>
+        <div class="col-md-6">
+            <input id="title" class="form-control text" type="text">
+            <textarea id="article" class="form-control text" rows="10"> </textarea>
+            <button id="sendArticle" class="btn btn-light" type="submit">Відправити статью</button>
+        </div>
+    </div>
+
+</div>
 
 <!--І чобітки-->
 
@@ -92,10 +90,14 @@
             <p>Footer</p>
         </footer>
 
+
+        <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
         <script src="../js/my.js"></script>
         <script src="../js/indexedDB.js"></script>
           <script src="../js/NewsJS.js"></script>
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="../js/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
     </body>
