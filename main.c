@@ -38,12 +38,48 @@ ISR(TIMER2_OVF_vect){
 		
 		if (flagActive1 == 1)
 		{
+			if(sect1 > 0){
+				
+				sect1--;
+				
+			} else 
+			
+			if (mint1 > 0)
+			{
+				mint1--;
+				sect1 = 59;
+			} else
+			
+			if (hourt1 > 0)
+			{
+				hourt1--;
+				mint1 = 59;
+			} else
+			flagActive1 = 0;
+			
 			
 		} else 
 		
 		if (flagActive2 == 1)
 		{
+			if(sect2 > 0){
+				
+				sect2--;
+				
+			} else
 			
+			if (mint2 > 0)
+			{
+				mint2--;
+				sect2 = 59;
+			} else
+			
+			if (hourt2 > 0)
+			{
+				hourt2--;
+				mint2 = 59;
+			} else
+			flagActive2 = 0;	
 		}
 		
 	}
