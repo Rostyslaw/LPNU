@@ -24,13 +24,29 @@ static int hourt1 = 0;
 static int sect2 = 0;
 static int mint2 = 0;
 static int hourt2 = 0;
+static int timerPointer = 0;
+static int valueKey = 0;
+static int timerSSR = 0; // SSR(Stop Start Reset)
+static int flagActive1;
+static int flagActive2;
+
 
 
 ISR(TIMER2_OVF_vect){
 	
-
-
-	
+	if(timerSSR == 1){
+		
+		if (flagActive1 == 1)
+		{
+			
+		} else 
+		
+		if (flagActive2 == 1)
+		{
+			
+		}
+		
+	}
 	
 }
 
@@ -50,7 +66,7 @@ int main(void)
 
 void timerInit(){
 	TCCR2A = 0x00;
-	TCCR2B = 0x05;  // f/128 = 1s
+	TCCR2B = 0x05; //  f/128 = 1s
 	TIMSK2 = 0x01;
 	ASSR = 0x20;	
 }
@@ -65,28 +81,28 @@ void portInit(){
 int readKey(){
 	
 	if(PINC0){
-		while(true){
+		while(1){
 			if(!PINC0)
 				return 1;
 		}		
 	}
 
 	if(PINC1){
-		while(true){
+		while(1){
 			if(!PINC1)
 			return 2;
 		}
 	}
 			
 	if(PINC2){
-		while(true){
+		while(1){
 			if(!PINC2)
 			return 3;
 		}
 	}
 
 	if(PINC3){
-		while(true){
+		while(1){
 			if(!PINC3)
 			return 4;
 		}
@@ -97,4 +113,78 @@ int readKey(){
 
 void processingInput(){
 	
+	valueKey = readKey();
+	
+	if(valueKey == 1){
+		
+		if(timerPointer == 0){
+			
+			hourt1++;			
+		} else {
+			
+			hourt2++;						
+		}
+	
+	} else
+	
+	if(valueKey == 2){
+		
+		if(timerPointer == 0){
+					
+			mint1++;
+			} else {
+					
+			mint2++;
+		}
+			
+	} else
+	
+	if(valueKey == 3){
+		
+		if(timerPointer == 0)
+			timerPointer = 1;
+		else
+			timerPointer = 0;
+	} else
+		
+	if(valueKey == 4){
+		
+		if(timerPointer == 0){
+			
+			if(timerSSR < 2)
+			{
+				
+				timerSSR++;
+				flagActive1++;
+				
+			} else {
+				
+				flagActive1 = 0;
+				timerSSR = 0;
+				sect1 = 0;
+				mint1 = 0;
+				hourt1 = 0;
+				
+			}
+			
+		} else {
+			
+			if(timerSSR < 2)
+			{
+				
+				timerSSR++;
+				flagActive2++;
+				
+			} else {
+				
+				flagActive2 = 0;	
+				timerSSR = 0;
+				sect2 = 0;
+				mint2 = 0;
+				hourt2 = 0;
+				
+			}
+		}
+		
+	} 
 }
