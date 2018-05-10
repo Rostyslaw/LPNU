@@ -92,7 +92,7 @@ int main(void)
 
 	timerInit();
 	portInit();
-	sei();
+	//sei();
     while (1) 
     {
 		processingInput();
@@ -106,6 +106,7 @@ int main(void)
 			outPort(hourt2, mint2, sect2);
 		}
     }
+
 }
 
 
@@ -119,37 +120,39 @@ void timerInit(){
 
 void portInit(){
 	DDRA = 0xFF;
+	PORTA = 0x00;
 	DDRC = 0x00;
 	PORTC = 0xFF;
 	DDRD = 0xFF;
+	PORTD = 0x00;
 }
 
 int readKey(){
 	
-	if(PINC0){
+	if(!PINC0){
 		while(1){
-			if(!PINC0)
+			if(PINC0)
 				return 1;
 		}		
 	}
 
-	if(PINC1){
+	if(!PINC1){
 		while(1){
-			if(!PINC1)
+			if(PINC1)
 			return 2;
 		}
 	}
 			
-	if(PINC2){
+	if(!PINC2){
 		while(1){
-			if(!PINC2)
+			if(PINC2)
 			return 3;
 		}
 	}
 
-	if(PINC3){
+	if(!PINC3){
 		while(1){
-			if(!PINC3)
+			if(PINC3)
 			return 4;
 		}
 	}
