@@ -7,6 +7,7 @@
 
 #include <avr/io.h>
 #include <avr/interrupt.h>
+#include <util/delay.h>
 
 
 void timerInit();
@@ -92,7 +93,7 @@ int main(void)
 
 	timerInit();
 	portInit();
-	//sei();
+	sei();
     while (1) 
     {
 		processingInput();
@@ -125,34 +126,34 @@ void portInit(){
 	PORTC = 0xFF;
 	DDRD = 0xFF;
 	PORTD = 0x00;
-}
+} 
 
 int readKey(){
 	
-	if(!PINC0){
+	if(PINC == 254){
 		while(1){
-			if(PINC0)
+			if(PINC == 255)
 				return 1;
 		}		
 	}
 
-	if(!PINC1){
+	if(PINC == 253){
 		while(1){
-			if(PINC1)
+			if(PINC == 255) 
 			return 2;
 		}
 	}
 			
-	if(!PINC2){
+	if(PINC == 251){
 		while(1){
-			if(PINC2)
+			if(PINC == 255)
 			return 3;
 		}
 	}
 
-	if(!PINC3){
+	if(PINC == 247){
 		while(1){
-			if(PINC3)
+			if(PINC == 255)
 			return 4;
 		}
 	}
@@ -239,7 +240,7 @@ void processingInput(){
 }
 
 void outPort(int hour, int min, int sec){
-	int SS[10] = {6, 91, 79, 103, 93, 125, 13, 127, 111};
+	int SS[10] = {0b00111111, 0b000000110, 0b01011011, 0b01001111, 0b01100110, 0b01101101, 0b01111101, 0b00000111, 0b01111111, 0b01101111};
 	int hour1 = 0;
 	int hour2 = 0;	
 		int min1 = 0;
@@ -248,58 +249,41 @@ void outPort(int hour, int min, int sec){
 			int sec2 = 0;
 	
 		
-	if(hour < 10){
-		
-		PORTD = 1;
-		PORTA = SS[0];
-		PORTD = 2;
-		PORTA = SS[hour];		
-		
-	} else {
-		
+
 		hour2 = hour % 10;
-		hour1 = hour - hour2;
+		hour1 = hour / 10;
 		
-		PORTD = 1;
 		PORTA = SS[hour1];
-		PORTD = 2;
+		PORTD = ~1;
+		_delay_ms(1);
+		PORTD = ~0;
 		PORTA = SS[hour2];
+		PORTD = ~2;
+		_delay_ms(1);
+		PORTD = ~0;
 		
-	}
-	
-	if(min < 10){
-		
-		PORTD = 4;
-		PORTA = SS[0];
-		PORTD = 8;
-		PORTA = SS[min];
-			
-	} else {
-		
+
 		min2 = min % 10;
-		min1 = min - min2;
+		min1 = min / 10;
 		
-		PORTD = 4;
 		PORTA = SS[min1];
-		PORTD = 8;
+		PORTD = ~4;
+		_delay_ms(1);
+		PORTD = ~0;
 		PORTA = SS[min2];
+		PORTD = ~8;
+		_delay_ms(1);
+		PORTD = ~0;
 			
-	}
-			
-	if(sec < 10){
-		
-		PORTD = 16;
-		PORTA = SS[0];
-		PORTD = 32;
-		PORTA = SS[sec];	
-			
-	} else {
-		
+
 		sec2 = sec % 10;
-		sec1 = sec - sec2;
-		PORTD = 16;
+		sec1 = sec / 10;
 		PORTA = SS[sec1];
-		PORTD = 32;
-		PORTA = SS[sec2];				
-	}
+		PORTD = ~16;
+		_delay_ms(1);
+		PORTD = ~0;
+		PORTA = SS[sec2];
+		PORTD = ~32;
+		_delay_ms(1);
+		PORTD = ~0;		
 }
