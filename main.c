@@ -15,6 +15,7 @@ int readKey();
 void processingInput();
 void timerOne();
 void timerTwo();
+void outPort(int hour, int min, int sec);
 
 
 
@@ -95,6 +96,15 @@ int main(void)
     while (1) 
     {
 		processingInput();
+		
+		if(timerPointer == 0){
+			outPort(hourt1, mint1, sect1);
+		} else
+		
+		if (timerPointer == 1)
+		{
+			outPort(hourt2, mint2, sect2);
+		}
     }
 }
 
@@ -223,4 +233,70 @@ void processingInput(){
 		}
 		
 	} 
+}
+
+void outPort(int hour, int min, int sec){
+	int SS[10] = {6, 91, 79, 103, 93, 125, 13, 127, 111};
+	int hour1 = 0;
+	int hour2 = 0;	
+		int min1 = 0;
+		int min2 = 0;
+			int sec1 = 0;
+			int sec2 = 0;
+	
+		
+	if(hour < 10){
+		
+		PORTD = 1;
+		PORTA = SS[0];
+		PORTD = 2;
+		PORTA = SS[hour];		
+		
+	} else {
+		
+		hour2 = hour % 10;
+		hour1 = hour - hour2;
+		
+		PORTD = 1;
+		PORTA = SS[hour1];
+		PORTD = 2;
+		PORTA = SS[hour2];
+		
+	}
+	
+	if(min < 10){
+		
+		PORTD = 4;
+		PORTA = SS[0];
+		PORTD = 8;
+		PORTA = SS[min];
+			
+	} else {
+		
+		min2 = min % 10;
+		min1 = min - min2;
+		
+		PORTD = 4;
+		PORTA = SS[min1];
+		PORTD = 8;
+		PORTA = SS[min2];
+			
+	}
+			
+	if(sec < 10){
+		
+		PORTD = 16;
+		PORTA = SS[0];
+		PORTD = 32;
+		PORTA = SS[sec];	
+			
+	} else {
+		
+		sec2 = sec % 10;
+		sec1 = sec - sec2;
+		PORTD = 16;
+		PORTA = SS[sec1];
+		PORTD = 32;
+		PORTA = SS[sec2];				
+	}
 }
