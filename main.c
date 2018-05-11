@@ -29,6 +29,7 @@ static int hourt2 = 0;
 static int timerPointer = 0;
 static int valueKey = 0;
 static int timerSSR = 0; // SSR(Stop Start Reset)
+static int timerSSR2 = 0;
 static int flagActive1;
 static int flagActive2;
 
@@ -55,12 +56,15 @@ ISR(TIMER2_OVF_vect){
 			if (hourt1 > 0)
 			{
 				hourt1--;
-				mint1 = 59;
+				mint1 = 60;
 			} else
 			flagActive1 = 0;
-			
-			
-		} else 
+					
+		} 
+		
+	} 
+	
+	if(timerSSR2 == 1){
 		
 		if (flagActive2 == 1)
 		{
@@ -79,9 +83,10 @@ ISR(TIMER2_OVF_vect){
 			if (hourt2 > 0)
 			{
 				hourt2--;
-				mint2 = 59;
+				mint2 = 60;
 			} else
-			flagActive2 = 0;	
+			flagActive2 = 0;
+			
 		}
 		
 	}
@@ -219,16 +224,16 @@ void processingInput(){
 			
 		} else {
 			
-			if(timerSSR < 2)
+			if(timerSSR2 < 2)
 			{
 				
-				timerSSR++;
+				timerSSR2++;
 				flagActive2++;
 				
 			} else {
 				
 				flagActive2 = 0;	
-				timerSSR = 0;
+				timerSSR2 = 0;
 				sect2 = 0;
 				mint2 = 0;
 				hourt2 = 0;
