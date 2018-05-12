@@ -30,6 +30,8 @@ static int timerPointer = 0;
 static int valueKey = 0;
 static int timerSSR = 0; // SSR(Stop Start Reset)
 static int timerSSR2 = 0;
+static int beep = 0;
+static int beepDelay = 0;
 static int flagActive1;
 static int flagActive2;
 
@@ -57,12 +59,14 @@ ISR(TIMER2_OVF_vect){
 			{
 				hourt1--;
 				mint1 = 60;
-			} else
-			flagActive1 = 0;
-					
+			} else {
+				flagActive1 = 0;
+				beep = 1;
+			}	
 		} 
 		
 	} 
+
 	
 	if(timerSSR2 == 1){
 		
@@ -84,12 +88,25 @@ ISR(TIMER2_OVF_vect){
 			{
 				hourt2--;
 				mint2 = 60;
-			} else
-			flagActive2 = 0;
+			} else {
+				flagActive2 = 0;
+				beep = 1;
+			}
 			
 		}
 		
 	}
+	
+	if (beep == 1)
+	{
+		if(beepDelay < 2)
+			beepDelay++;
+		else {
+			beep = 0;
+			beepDelay = 0;
+		}
+	}
+
 	
 }
 
@@ -127,6 +144,8 @@ void timerInit(){
 void portInit(){
 	DDRA = 0xFF;
 	PORTA = 0x00;
+	DDRB = 0xFF;
+	PORTB = 0x00;
 	DDRC = 0x00;
 	PORTC = 0xFF;
 	DDRD = 0xFF;
@@ -263,9 +282,11 @@ void outPort(int hour, int min, int sec){
 		_delay_ms(1);
 		PORTD = ~0;
 		PORTA = SS[hour2];
+		PORTB = 1;
 		PORTD = ~2;
 		_delay_ms(1);
 		PORTD = ~0;
+		PORTB = 0;
 		
 
 		min2 = min % 10;
@@ -276,9 +297,11 @@ void outPort(int hour, int min, int sec){
 		_delay_ms(1);
 		PORTD = ~0;
 		PORTA = SS[min2];
+		PORTB = 1;
 		PORTD = ~8;
 		_delay_ms(1);
 		PORTD = ~0;
+		PORTB = 0;
 			
 
 		sec2 = sec % 10;
@@ -291,4 +314,11 @@ void outPort(int hour, int min, int sec){
 		PORTD = ~32;
 		_delay_ms(1);
 		PORTD = ~0;		
+		
+		if (beep == 1)
+			PORTB = 64;
+		_delay_ms(1);
+		//PORTB = 0;
+		
+		
 }
